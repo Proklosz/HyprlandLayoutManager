@@ -1,0 +1,21 @@
+/* style.css */
+window {
+  background-color: #202020;
+  color: white;
+}
+
+button {
+  background-color: #404040;
+  border-radius: 0px;
+  border: solid 2px white;
+  padding: 5px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+button:hover {
+  background-color: #d0d0d0;
+  color: #202020;
+  margin: 20px;
+  padding: 5px;
+}
