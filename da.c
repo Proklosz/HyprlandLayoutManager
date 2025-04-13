@@ -323,8 +323,9 @@ static void on_save_button_clicked(GtkButton *button, gpointer user_data) {
 
     char command[256];
     snprintf(command, sizeof(command),
-             "hyprctl keyword monitor %s,%dx%d,%dx%d,1", monitors[i].name,
-             monitors[i].width, monitors[i].height, relative_x, relative_y);
+             "hyprctl keyword monitor %s,%dx%d,%dx%d,%f", monitors[i].name,
+             monitors[i].width, monitors[i].height, relative_x, relative_y,
+             monitors[i].scale);
 
     // Execute the command
     system(command);
@@ -355,9 +356,9 @@ static void on_copy_config_button_clicked(GtkButton *button,
     int relative_y = monitors[i].y - top_left_monitor->y;
 
     char command[256];
-    snprintf(command, sizeof(command), "monitor=%s,%dx%d,%dx%d,1\n",
+    snprintf(command, sizeof(command), "monitor=%s,%dx%d,%dx%d,%f\n",
              monitors[i].name, monitors[i].width, monitors[i].height,
-             relative_x, relative_y);
+             relative_x, relative_y, monitors[i].scale);
 
     strncat(config, command, sizeof(config) - strlen(config) - 1);
   }
